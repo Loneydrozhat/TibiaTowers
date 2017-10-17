@@ -15,7 +15,8 @@ class VocationSelectScreen(Screen):
 
         box.add_widget(Label(text="Vocation"))
 
-        vocations = ["Master Sorcerer", "Elder Druid", "Elite Knight", "Royal Paladin"]
+        #vocations = ["Master Sorcerer", "Elder Druid", "Elite Knight", "Royal Paladin"]
+        vocations = ["MS", "ED", "EK", "RP"]
         for voc in vocations:
             box.add_widget(Button(text=voc, on_press=lambda e, v=voc: self.select_vocation(v)))
 
