@@ -45,6 +45,8 @@ class MapWidget(Widget):
                     try:
                         content_length = struct.unpack(">I", s.recv(4))[0]
                         self.map_data = pickle.loads(s.recv(content_length))
+                    except EOFError:
+                        print("Error - Unexpected EOF.")
                     except ConnectionResetError:
                         print("Error - Connection was reset.")
                         s.close()
@@ -60,13 +62,15 @@ class MapWidget(Widget):
             for col in range(self.tile_columns):
                 for row in range(self.tile_rows):
                     # Draw map tiles.
-                    tile_item = self.map_data["TILES"][render_from_x + col][render_from_y + row]
-                    if tile_item is not None:
-                        tile_source = "assets/tiles/{0}.png".format(tile_item["TYPE"])
-                        tile_pos_x = (col * self.tile_diameter) + self.x_pos_offset
-                        tile_pos_y = (row * self.tile_diameter) + self.y_pos_offset
-                        rect = Rectangle(source=tile_source, pos=(tile_pos_x, tile_pos_y), size=(self.tile_diameter, self.tile_diameter))
-                        self.canvas.add(rect)
+                    object_lists = ["TILES", "OBJECTS", "SENTIENTS"]
+                    for object_list in object_lists:
+                        item = self.map_data[object_list][render_from_x + col][render_from_y + row]
+                        if item is not None:
+                            tile_source = "assets/{0}/{1}.png".format(object_list.lower(), item["TYPE"].lower())
+                            tile_pos_x = (col * self.tile_diameter) + self.x_pos_offset
+                            tile_pos_y = (row * self.tile_diameter) + self.y_pos_offset
+                            rect = Rectangle(source=tile_source, pos=(tile_pos_x, tile_pos_y), size=(self.tile_diameter, self.tile_diameter))
+                            self.canvas.add(rect)
 
 
 class ChatWidget(Widget):
