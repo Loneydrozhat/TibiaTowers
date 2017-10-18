@@ -25,6 +25,7 @@ class MapWidget(Widget):
     x_pos_offset = 0
     y_pos_offset = 0
     map_data = None
+    socket_buffer_size = 1024
     force_thread_halt = False
 
     def __init__(self, **kwargs):
@@ -44,11 +45,20 @@ class MapWidget(Widget):
                 while not self.force_thread_halt:
                     try:
                         content_length = struct.unpack(">I", s.recv(4))[0]
-                        self.map_data = pickle.loads(s.recv(content_length))
+                        recv_data = bytes()
+                        while len(recv_data) < content_length:
+                            recv_size = content_length - len(recv_data)
+                            if recv_size > self.socket_buffer_size:
+                                recv_size = self.socket_buffer_size
+                            recv_data += s.recv(recv_size)
+                        self.map_data = pickle.loads(recv_data)
                     except EOFError:
                         print("Error - Unexpected EOF.")
+                    except pickle.UnpicklingError:
+                        print("Error - Unpickling error.")
                     except ConnectionResetError:
                         print("Error - Connection was reset.")
+                    except(EOFError, pickle.UnpicklingError, ConnectionResetError):
                         s.close()
                         break
             except ConnectionRefusedError:

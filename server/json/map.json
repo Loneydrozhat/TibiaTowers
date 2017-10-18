@@ -179,9 +179,10 @@
   ],
   "OBJECTS":
   [
+    { "TYPE": "DWARVEN_SHIELD", "X": 2, "Y": 8 }
   ],
   "SENTIENTS":
   [
-    { "TYPE": "MAN", "X": 2, "Y": 8 }
+    { "TYPE": "PLAYER_N", "X": 2, "Y": 8 }
   ]
 }

@@ -53,9 +53,9 @@ class Server:
             send_data = self.map_data.copy()
             send_data["PLAYER"] = {"X": 7, "Y": 5}
             send_data_raw = pickle.dumps(send_data)
+            content_length = len(send_data_raw)
             try:
-                connection.send(struct.pack(">I", len(send_data_raw)))
-                connection.send(send_data_raw)
+                connection.send(struct.pack(">I", content_length) + send_data_raw)
             except ConnectionResetError:
                 print("Error - Connection from {0} was reset.".format(address[0]))
                 break
