@@ -1,14 +1,14 @@
 from kivy.uix.screenmanager import Screen
 from kivy.uix.widget import Widget
-from kivy.uix.gridlayout import GridLayout
-from kivy.graphics import Color, Rectangle
-from kivy.core.image import Image
+from kivy.graphics import Rectangle
 from kivy.clock import Clock
 from kivy.config import Config
+from kivy.core.window import Window
 import socket
 import struct
 import threading
 import pickle
+
 
 class GameScreen(Screen):
     def __init__(self, **kwargs):
@@ -30,10 +30,26 @@ class MapWidget(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.keyboard = Window.request_keyboard(self.keyboard_closed, self)
+        self.keyboard.bind(on_key_down=self.on_keyboard_down)
         Clock.schedule_interval(self.update_ui, 1.0 / 60.0)
         self.y_pos_offset = float(Config.get("graphics", "height")) - (self.tile_diameter * self.tile_rows)
         map_data_thread = threading.Thread(target=self.get_map_data)
         map_data_thread.start()
+
+    def keyboard_closed(self):
+        self.keyboard.unbind(on_key_down=self.on_keyboard_down)
+        self.keyboard = None
+
+    def on_keyboard_down(self, keyboard, keycode, text, modifiers):
+        if keycode[1] == "up":
+            self.map_data["PLAYER"]["Y"] += 1
+        if keycode[1] == "down":
+            self.map_data["PLAYER"]["Y"] -= 1
+        if keycode[1] == "left":
+            self.map_data["PLAYER"]["X"] += 1
+        if keycode[1] == "right":
+            self.map_data["PLAYER"]["X"] -= 1
 
     def get_map_data(self):
         while not self.force_thread_halt:
@@ -54,11 +70,14 @@ class MapWidget(Widget):
                         self.map_data = pickle.loads(recv_data)
                     except EOFError:
                         print("Error - Unexpected EOF.")
+                        s.close()
+                        break
                     except pickle.UnpicklingError:
                         print("Error - Unpickling error.")
+                        s.close()
+                        break
                     except ConnectionResetError:
                         print("Error - Connection was reset.")
-                    except(EOFError, pickle.UnpicklingError, ConnectionResetError):
                         s.close()
                         break
             except ConnectionRefusedError:

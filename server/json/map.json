@@ -16,6 +16,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 0 },
     { "TYPE": "GRASS", "X": 13, "Y": 0 },
     { "TYPE": "GRASS", "X": 14, "Y": 0 },
+    { "TYPE": "GRASS", "X": 15, "Y": 0 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 1 },
     { "TYPE": "GRASS", "X": 1, "Y": 1 },
@@ -32,6 +33,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 1 },
     { "TYPE": "GRASS", "X": 13, "Y": 1 },
     { "TYPE": "GRASS", "X": 14, "Y": 1 },
+    { "TYPE": "GRASS", "X": 15, "Y": 1 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 2 },
     { "TYPE": "GRASS", "X": 1, "Y": 2 },
@@ -48,6 +50,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 2 },
     { "TYPE": "GRASS", "X": 13, "Y": 2 },
     { "TYPE": "GRASS", "X": 14, "Y": 2 },
+    { "TYPE": "GRASS", "X": 15, "Y": 2 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 3 },
     { "TYPE": "GRASS", "X": 1, "Y": 3 },
@@ -64,6 +67,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 3 },
     { "TYPE": "GRASS", "X": 13, "Y": 3 },
     { "TYPE": "GRASS", "X": 14, "Y": 3 },
+    { "TYPE": "GRASS", "X": 15, "Y": 3 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 4 },
     { "TYPE": "GRASS", "X": 1, "Y": 4 },
@@ -80,6 +84,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 4 },
     { "TYPE": "GRASS", "X": 13, "Y": 4 },
     { "TYPE": "GRASS", "X": 14, "Y": 4 },
+    { "TYPE": "GRASS", "X": 15, "Y": 4 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 5 },
     { "TYPE": "GRASS", "X": 1, "Y": 5 },
@@ -96,6 +101,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 5 },
     { "TYPE": "GRASS", "X": 13, "Y": 5 },
     { "TYPE": "GRASS", "X": 14, "Y": 5 },
+    { "TYPE": "GRASS", "X": 15, "Y": 5 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 6 },
     { "TYPE": "GRASS", "X": 1, "Y": 6 },
@@ -112,6 +118,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 6 },
     { "TYPE": "GRASS", "X": 13, "Y": 6 },
     { "TYPE": "GRASS", "X": 14, "Y": 6 },
+    { "TYPE": "GRASS", "X": 15, "Y": 6 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 7 },
     { "TYPE": "GRASS", "X": 1, "Y": 7 },
@@ -128,6 +135,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 7 },
     { "TYPE": "GRASS", "X": 13, "Y": 7 },
     { "TYPE": "GRASS", "X": 14, "Y": 7 },
+    { "TYPE": "GRASS", "X": 15, "Y": 7 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 8 },
     { "TYPE": "GRASS", "X": 1, "Y": 8 },
@@ -144,6 +152,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 8 },
     { "TYPE": "GRASS", "X": 13, "Y": 8 },
     { "TYPE": "GRASS", "X": 14, "Y": 8 },
+    { "TYPE": "GRASS", "X": 15, "Y": 8 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 9 },
     { "TYPE": "GRASS", "X": 1, "Y": 9 },
@@ -160,6 +169,7 @@
     { "TYPE": "GRASS", "X": 12, "Y": 9 },
     { "TYPE": "GRASS", "X": 13, "Y": 9 },
     { "TYPE": "GRASS", "X": 14, "Y": 9 },
+    { "TYPE": "GRASS", "X": 15, "Y": 9 },
     
     { "TYPE": "GRASS", "X": 0, "Y": 10 },
     { "TYPE": "GRASS", "X": 1, "Y": 10 },
@@ -175,11 +185,29 @@
     { "TYPE": "GRASS", "X": 11, "Y": 10 },
     { "TYPE": "GRASS", "X": 12, "Y": 10 },
     { "TYPE": "GRASS", "X": 13, "Y": 10 },
-    { "TYPE": "GRASS", "X": 14, "Y": 10 }
+    { "TYPE": "GRASS", "X": 14, "Y": 10 },
+    { "TYPE": "GRASS", "X": 15, "Y": 10 },
+
+    { "TYPE": "GRASS", "X": 0, "Y": 11 },
+    { "TYPE": "GRASS", "X": 1, "Y": 11 },
+    { "TYPE": "GRASS", "X": 2, "Y": 11 },
+    { "TYPE": "GRASS", "X": 3, "Y": 11 },
+    { "TYPE": "GRASS", "X": 4, "Y": 11 },
+    { "TYPE": "GRASS", "X": 5, "Y": 11 },
+    { "TYPE": "GRASS", "X": 6, "Y": 11 },
+    { "TYPE": "GRASS", "X": 7, "Y": 11 },
+    { "TYPE": "GRASS", "X": 8, "Y": 11 },
+    { "TYPE": "GRASS", "X": 9, "Y": 11 },
+    { "TYPE": "GRASS", "X": 10, "Y": 11 },
+    { "TYPE": "GRASS", "X": 11, "Y": 11 },
+    { "TYPE": "GRASS", "X": 12, "Y": 11 },
+    { "TYPE": "GRASS", "X": 13, "Y": 11 },
+    { "TYPE": "GRASS", "X": 14, "Y": 11 },
+    { "TYPE": "GRASS", "X": 15, "Y": 11 }
   ],
   "OBJECTS":
   [
-    { "TYPE": "DWARVEN_SHIELD", "X": 2, "Y": 8 }
+    { "TYPE": "DWARVEN_SHIELD", "X": 2, "Y": 7 }
   ],
   "SENTIENTS":
   [
