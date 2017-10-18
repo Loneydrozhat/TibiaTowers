@@ -27,18 +27,15 @@ class Server:
             if tile["Y"] > max_y:
                 max_y = tile["Y"]
 
-        self.map_data["TILES"] = [[None] * (max_y + 1)] * (max_x + 1)
-        self.map_data["OBJECTS"] = [[None] * (max_y + 1)] * (max_x + 1)
-        self.map_data["SENTIENTS"] = [[None] * (max_y + 1)] * (max_x + 1)
-
-        print(self.map_data["TILES"])
-        for item in read_data["TILES"]:
-            self.map_data["TILES"][item["X"]][item["Y"]] = item.copy()
-        for item in read_data["OBJECTS"]:
-            self.map_data["OBJECTS"][item["X"]][item["Y"]] = item.copy()
-        for item in read_data["SENTIENTS"]:
-            self.map_data["SENTIENTS"][item["X"]][item["Y"]] = item.copy()
-        print(self.map_data["TILES"])
+        lists = ["TILES", "OBJECTS", "SENTIENTS"]
+        for l in lists:
+            self.map_data[l] = []
+            for x in range(max_x + 1):
+                self.map_data[l].append([])
+                for y in range(max_y + 1):
+                    self.map_data[l][x].append(None)
+            for item in read_data[l]:
+                self.map_data[l][item["X"]][item["Y"]] = item
 
     def listen_for_clients(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
